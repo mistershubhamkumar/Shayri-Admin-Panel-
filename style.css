@@ -35,7 +35,7 @@ form {
   gap: 15px;
 }
 
-select, textarea, button {
+select, textarea, button, input {
   padding: 10px;
   border-radius: 5px;
   border: none;
@@ -53,8 +53,7 @@ button:hover {
   background-color: #ff4500;
 }
 
-textarea {
-  resize: none;
+textarea, input {
   background-color: #fff;
   color: #333;
 }
