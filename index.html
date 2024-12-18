@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel - Shayari Upload</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>Made by Mr. Shubham</h1>
+  </header>
+
+  <div class="container">
+    <h2>Upload Shayari</h2>
+    
+    <form id="shayariForm">
+      <label for="category">Choose Category</label>
+      <select id="category" onchange="showNewCategoryInput()">
+        <option value="love">Love</option>
+        <option value="sad">Sad</option>
+        <option value="funny">Funny</option>
+        <option value="motivation">Motivation</option>
+        <option value="new">New Category</option>
+      </select>
+
+      <div id="newCategoryInput" style="display: none;">
+        <label for="newCategoryName">Enter New Category Name</label>
+        <input type="text" id="newCategoryName" placeholder="Enter category name">
+      </div>
+
+      <label for="shayariText">Enter Shayari</label>
+      <textarea id="shayariText" rows="5"></textarea>
+
+      <button type="submit">Publish</button>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
