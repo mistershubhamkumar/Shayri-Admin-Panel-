@@ -1,16 +1,33 @@
+function showNewCategoryInput() {
+  const categorySelect = document.getElementById('category');
+  const newCategoryInput = document.getElementById('newCategoryInput');
+  
+  if (categorySelect.value === 'new') {
+    newCategoryInput.style.display = 'block';
+  } else {
+    newCategoryInput.style.display = 'none';
+  }
+}
+
 document.getElementById('shayariForm').addEventListener('submit', function(event) {
   event.preventDefault();
 
   const category = document.getElementById('category').value;
+  let categoryName = category;
+  if (category === 'new') {
+    categoryName = document.getElementById('newCategoryName').value;
+  }
+  
   const shayariText = document.getElementById('shayariText').value;
 
-  if (category && shayariText) {
-    // Saving the shayari to localStorage for now (you can later integrate with a database)
-    let shayariData = JSON.parse(localStorage.getItem(category)) || [];
+  if (categoryName && shayariText) {
+    // Save the shayari under the chosen category
+    let shayariData = JSON.parse(localStorage.getItem(categoryName)) || [];
     shayariData.push(shayariText);
-    localStorage.setItem(category, JSON.stringify(shayariData));
+    localStorage.setItem(categoryName, JSON.stringify(shayariData));
 
     alert('Shayari Published!');
     document.getElementById('shayariForm').reset();
+    showNewCategoryInput(); // Hide the new category input after submission
   }
 });
